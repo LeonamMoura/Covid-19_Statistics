@@ -1,11 +1,10 @@
-import React, { useCallback, useContext } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import React, { useCallback } from 'react'
 import { firebaseConfig } from '../../auth/config'
-import { AuthContext } from '../../auth/authContext'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { InputField, Form } from './style'
 
-export const LoginPage = withRouter((props) => {
+export const FormLogin = (props) => {
   const { history } = props
 
   const loginFunction = useCallback(
@@ -35,27 +34,24 @@ export const LoginPage = withRouter((props) => {
     },
     [history]
   )
-
-  const { user } = useContext(AuthContext)
-
-  if (user) {
-    return <Redirect to='./' />
-  }
-
   return (
     <>
-      <h1>Logar</h1>
-      <form onSubmit={loginFunction}>
-        <label>Email</label>
-        <input placeholder='email' type='email' name='email' required />
+      <Form onSubmit={loginFunction} autocomplete='off'>
+        <h2>Acesse sua conta</h2>
+        <InputField>
+          <label>Email</label>
+          <input placeholder='email' type='email' name='email' required />
+        </InputField>
 
-        <label>Senha</label>
-        <input placeholder='senha' type='password' name='password' required />
+        <InputField>
+          <label>Senha</label>
+          <input placeholder='senha' type='password' name='password' required />
+        </InputField>
 
         <button type='submit'>Entrar</button>
-      </form>
+      </Form>
 
       <ToastContainer />
     </>
   )
-})
+}

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { firebaseConfig } from '../../auth/config'
 import axios from 'axios'
-import moment from 'moment'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 export default function HomePage() {
   const [user, setUser] = useState({})
@@ -47,6 +44,7 @@ export default function HomePage() {
     })
       .then((response) => {
         setCountryData(response.data[0])
+        console.log(response.data[0])
       })
       .catch((error) => {
         console.log(error)
@@ -58,6 +56,7 @@ export default function HomePage() {
       <h1>HomePage</h1>
       <h3>Olá, {user.name}</h3>
       <h4>Region: {user.country}</h4>
+      <p>Infectados: {countryData.confirmed}</p>
       <button onClick={() => firebaseConfig.auth().signOut()}>Logout</button>
     </div>
   )
