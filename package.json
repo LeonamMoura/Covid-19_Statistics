@@ -9,12 +9,15 @@
     "axios": "^0.20.0",
     "firebase": "^7.21.0",
     "firebase-admin": "^9.2.0",
+    "lottie-web": "^5.7.3",
     "moment": "^2.29.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-lottie": "^1.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-toastify": "^6.0.8"
+    "react-toastify": "^6.0.8",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -4,8 +4,9 @@ import { firebaseConfig } from '../../auth/config'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { Form, InputField } from './style'
 
-export const SignUpPage = withRouter((props) => {
+export const FormSignup = withRouter((props) => {
   const { history } = props
   const [countries, setCountries] = useState([])
 
@@ -32,7 +33,7 @@ export const SignUpPage = withRouter((props) => {
       })
       .catch((error) => {
         console.log(error)
-        history.replace('/signup')
+        history.replace('/')
       })
   }
 
@@ -47,12 +48,16 @@ export const SignUpPage = withRouter((props) => {
         pass_confirm
       } = event.target.elements
       try {
-        if (password.value != pass_confirm.value) {
+        if (password.value !== pass_confirm.value) {
           throw new Error('Senha não coincide')
         }
 
-        if (password.value.lenght < 6 && pass_confirm.value < 6) {
+        if (password.value.lenght < 6 || pass_confirm.value.lenght < 6) {
           throw new Error('A senha deve ter no mínimo 6 caracteres')
+        }
+
+        if (country.value === 'Selecione') {
+          throw new Error('Você deve selecionar um país')
         }
 
         const result = await firebaseConfig
@@ -68,7 +73,7 @@ export const SignUpPage = withRouter((props) => {
           country: country.value
         })
 
-        history.push('/')
+        history.push('/home')
       } catch (error) {
         toast.dark(error.message, {
           position: 'top-right',
@@ -79,7 +84,7 @@ export const SignUpPage = withRouter((props) => {
           draggable: true,
           progress: undefined
         })
-        history.replace('/signup')
+        history.replace('/')
       }
     },
     [history]
@@ -87,48 +92,59 @@ export const SignUpPage = withRouter((props) => {
 
   return (
     <>
-      <form onSubmit={signUpFunction}>
-        <label>Nome</label>
-        <input
-          placeholder='Digite seu nome completo'
-          type='text'
-          name='name'
-          required
-        />
+      <Form onSubmit={signUpFunction} autocomplete='off'>
+        <InputField>
+          <label>Nome</label>
+          <input
+            placeholder='Digite seu nome completo'
+            type='text'
+            name='name'
+            required
+          />
+        </InputField>
 
-        <label>E-mail</label>
-        <input
-          placeholder='exemplo@email.com'
-          type='email'
-          name='email'
-          required
-        />
+        <InputField>
+          <label>E-mail</label>
+          <input
+            placeholder='exemplo@email.com'
+            type='email'
+            name='email'
+            required
+          />
+        </InputField>
 
-        <label>País</label>
-        <select name='country'>
-          {countries.map((country) => (
-            <option>{country.name}</option>
-          ))}
-        </select>
+        <InputField>
+          <label>País</label>
+          <select name='country'>
+            <option>Selecione</option>
+            {countries.map((country) => (
+              <option>{country.name}</option>
+            ))}
+          </select>
+        </InputField>
 
-        <label>Senha</label>
-        <input
-          placeholder='No mínimo 6 caracteres'
-          type='password'
-          name='password'
-          required
-        />
+        <InputField>
+          <label>Senha</label>
+          <input
+            placeholder='No mínimo 6 caracteres'
+            type='password'
+            name='password'
+            required
+          />
+        </InputField>
 
-        <label>Confirmar senha</label>
-        <input
-          placeholder='Confirme sua senha'
-          type='password'
-          name='pass_confirm'
-          required
-        />
+        <InputField>
+          <label>Confirmar senha</label>
+          <input
+            placeholder='Confirme sua senha'
+            type='password'
+            name='pass_confirm'
+            required
+          />
+        </InputField>
 
         <button type='submit'>Cadastrar</button>
-      </form>
+      </Form>
       <ToastContainer />
     </>
   )
