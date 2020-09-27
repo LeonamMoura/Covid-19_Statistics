@@ -93,6 +93,18 @@ export const FormSignup = withRouter((props) => {
   return (
     <>
       <Form onSubmit={signUpFunction} autocomplete='off'>
+        <h2>Crie sua conta</h2>
+
+        <InputField>
+          <label>País</label>
+          <select name='country'>
+            <option>Selecione</option>
+            {countries.map((country) => (
+              <option>{country.name}</option>
+            ))}
+          </select>
+        </InputField>
+
         <InputField>
           <label>Nome</label>
           <input
@@ -111,16 +123,6 @@ export const FormSignup = withRouter((props) => {
             name='email'
             required
           />
-        </InputField>
-
-        <InputField>
-          <label>País</label>
-          <select name='country'>
-            <option>Selecione</option>
-            {countries.map((country) => (
-              <option>{country.name}</option>
-            ))}
-          </select>
         </InputField>
 
         <InputField>

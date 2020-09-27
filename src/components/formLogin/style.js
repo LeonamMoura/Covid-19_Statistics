@@ -9,6 +9,17 @@ export const Form = styled.form`
   align-items: center;
   justify-content: space-around;
 
+  animation: dragRight 0.8s;
+
+  @keyframes dragRight {
+    from {
+      margin-right: 1000px;
+    }
+    to {
+      margin-right: 0;
+    }
+  }
+
   button {
     cursor: pointer;
     border: none;
