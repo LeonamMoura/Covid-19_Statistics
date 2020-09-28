@@ -6,7 +6,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 100vw;
+  max-width: 100vw;
+  width: 100%;
   height: 100vh;
 
   background-color: #000;
@@ -23,7 +24,8 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
+  max-width: 100vw;
   height: 80px;
   background: #06e26b;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.28);
