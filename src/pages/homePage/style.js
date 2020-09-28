@@ -10,10 +10,11 @@ export const Container = styled.div`
   height: 100vh;
 
   background-color: #000;
+  margin-top: 40px;
 
   @media screen and (max-width: 970px) {
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 40px;
   }
 `
 export const Header = styled.header`

@@ -61,7 +61,6 @@ export default function HomePage() {
     })
       .then((response) => {
         setCountryData(response.data[0])
-        console.log(response.data[0])
       })
       .catch((error) => {
         console.log(error)

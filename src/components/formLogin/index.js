@@ -4,39 +4,34 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { InputField, Form } from './style'
 
-export const FormLogin = (props) => {
-  const { history } = props
+export const FormLogin = () => {
+  const loginFunction = useCallback(async (event) => {
+    event.preventDefault()
 
-  const loginFunction = useCallback(
-    async (event) => {
-      event.preventDefault()
+    const { email, password } = event.target.elements
 
-      const { email, password } = event.target.elements
-
-      try {
-        await firebaseConfig
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value)
-      } catch (error) {
-        toast.error(
-          'Opa! Parece que você errou a senha... Mas não se preocupe, tente mais uma vez',
-          {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
-          }
-        )
-      }
-    },
-    [history]
-  )
+    try {
+      await firebaseConfig
+        .auth()
+        .signInWithEmailAndPassword(email.value, password.value)
+    } catch (error) {
+      toast.error(
+        'Opa! Parece que você errou a senha... Mas não se preocupe, tente mais uma vez',
+        {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        }
+      )
+    }
+  }, [])
   return (
     <>
-      <Form onSubmit={loginFunction} autocomplete='off'>
+      <Form onSubmit={loginFunction}>
         <h2>Acesse sua conta</h2>
         <InputField>
           <label>Email</label>

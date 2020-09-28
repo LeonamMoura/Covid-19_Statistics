@@ -4,7 +4,7 @@ import { AuthContext } from '../../auth/authContext'
 import { FormLogin } from '../../components/formLogin'
 import { FormSignup } from '../../components/formSignup'
 import { PrecautionsSection } from '../../components/precautionsSection'
-import { DatasField, Slogan, ButtonAlterForm, AlterFormField } from './style'
+import { DatasField, Slogan, AlterFormField } from './style'
 
 export const AuthenticationPage = withRouter((props) => {
   const [showLogin, setShowLogin] = useState(true)
