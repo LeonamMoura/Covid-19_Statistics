@@ -13,6 +13,7 @@ export const DatasField = styled.div`
 
   @media (max-width: 1000px) {
     width: 100%;
+    min-height: 100vh;
   }
 `
 export const Slogan = styled.div`
@@ -25,27 +26,15 @@ export const Slogan = styled.div`
     font-size: 30px;
     color: #fff;
   }
-`
-export const ButtonAlterForm = styled.button`
-  cursor: pointer;
-  border: solid 2px #06e26b;
-  border-radius: 10px;
-  width: 60%;
-  height: 60px;
 
-  font-family: Roboto;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-
-  background-color: transparent;
-  color: #ffffff;
-
-  :hover {
-    background-color: #06e26b;
+  @media screen and (max-width: 380px) {
+    h1,
+    h1 span {
+      font-size: 20px;
+    }
   }
 `
+
 export const AlterFormField = styled.div`
   width: 50%;
   height: 10%;
@@ -53,4 +42,42 @@ export const AlterFormField = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  button {
+    font-size: 1.2em;
+  }
+
+  u {
+    cursor: pointer;
+    color: #06e26b;
+    font-size: 20px;
+
+    :active {
+      transition: 0.3s;
+      transform: scale(2);
+    }
+  }
+
+  u {
+    color: #06e26b;
+  }
+
+  @media screen and (min-width: 280px) and (max-width: 500px) {
+    width: 100%;
+    font-size: 12px;
+
+    button {
+      width: 100px;
+      height: 50%;
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 1000px) {
+    button {
+      width: 100px;
+      height: 50%;
+      font-size: 12px;
+    }
+  }
 `

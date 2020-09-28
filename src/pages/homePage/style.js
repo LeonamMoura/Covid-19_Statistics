@@ -10,14 +10,19 @@ export const Container = styled.div`
   height: 100vh;
 
   background-color: #000;
+
+  @media screen and (max-width: 970px) {
+    justify-content: space-around;
+    margin-top: 20px;
+  }
 `
 export const Header = styled.header`
-  position: sticky;
+  position: fixed;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 100vw;
   height: 80px;
   background: #06e26b;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.28);
@@ -56,6 +61,13 @@ export const Slogan = styled.div`
     font-size: 30px;
     color: #fff;
   }
+
+  @media screen and (max-width: 970px) {
+    h1,
+    h1 span {
+      font-size: 20px;
+    }
+  }
 `
 
 export const MainSection = styled.main`
@@ -84,6 +96,29 @@ export const Datas = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
+
+  @media screen and (max-width: 970px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 60vh;
+    width: 100%;
+  }
+`
+export const InformationOfDatas = styled.div`
+  @media screen and (max-width: 970px) {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  @media screen and (max-width: 320px) {
+    font-size: 14px;
+  }
 `
 
 export const ConfirmedCases = styled.div`

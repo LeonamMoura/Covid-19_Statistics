@@ -6,6 +6,7 @@ import {
   Slogan,
   MainSection,
   Datas,
+  InformationOfDatas,
   ConfirmedCases,
   RecoveredCases,
   SeriousCases,
@@ -83,7 +84,7 @@ export default function HomePage() {
       </Header>
 
       <MainSection>
-        <div>
+        <InformationOfDatas>
           <h2>
             País:{' '}
             <span>
@@ -108,7 +109,8 @@ export default function HomePage() {
                 .format('DD/MM/YYYY')}
             </span>
           </h2>
-        </div>
+        </InformationOfDatas>
+
         <Datas>
           <ConfirmedCases>
             <p>Casos Confirmados:</p>

@@ -33,20 +33,38 @@ export const Form = styled.form`
     background-color: #06e26b;
     color: #fff;
 
-    :hover {
+    :active {
       background-color: #0bb056;
+    }
+
+    @media screen and (min-width: 280px) and (max-width: 500px) and (max-height: 640) {
+      height: 50px;
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 1000px) {
+      height: 50px;
     }
   }
 
   input {
     width: 100%;
-    min-width: 300px;
     height: 50px;
+
+    @media screen and (min-width: 280px) and (max-width: 500px) {
+      height: 50px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 1000px) {
+      height: 8vh;
+      width: 100%;
+      margin-bottom: 10px;
+    }
   }
 
   select {
     width: 100%;
-    min-width: 300px;
     height: 50px;
     background-color: transparent;
 
@@ -68,4 +86,8 @@ export const InputField = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 60%;
+
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
 `
