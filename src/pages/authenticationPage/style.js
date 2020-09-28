@@ -43,6 +43,8 @@ export const AlterFormField = styled.div`
   align-items: center;
   justify-content: center;
 
+  animation: dragTop 1.8s;
+
   button {
     font-size: 1.2em;
   }
@@ -78,6 +80,15 @@ export const AlterFormField = styled.div`
       width: 100px;
       height: 50%;
       font-size: 12px;
+    }
+  }
+
+  @keyframes dragTop {
+    from {
+      margin-top: 200px;
+    }
+    to {
+      margin-top: 0px;
     }
   }
 `
