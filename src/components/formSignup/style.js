@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Form = styled.form`
-  height: 70%;
+  height: 90%;
   width: 100%;
 
   display: flex;
