@@ -15,13 +15,23 @@ export const Precautions = styled.div`
 
   h2 {
     color: #000;
-    font-size: 32px;
-    margin-bottom: 50px;
+    font-size: 28px;
   }
 
-  @media (max-width: 1000px) {
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
+    justify-content: center;
+    text-align: center;
     position: relative;
     width: 100%;
+    min-height: 100%;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    span {
+      font-size: 14px;
+    }
   }
 `
 

@@ -92,7 +92,7 @@ export const FormSignup = withRouter((props) => {
 
   return (
     <>
-      <Form onSubmit={signUpFunction} autocomplete='off'>
+      <Form onSubmit={signUpFunction}>
         <h2>Crie sua conta</h2>
 
         <InputField>

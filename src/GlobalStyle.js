@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
 
     outline: none;
   }
+
+  h3 {
+    color: #FFFFFF;
+  }
   
   body {
     background-color: #000;
@@ -15,7 +19,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Rambla', sans-serif;
   }
 
-  
+  form {
+    @media screen and (max-width: 500px) {
+      width: 100%
+    }
+  }
 
   input {
     font-size: 1.2em;

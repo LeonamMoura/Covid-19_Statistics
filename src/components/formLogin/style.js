@@ -40,7 +40,6 @@ export const Form = styled.form`
 
   input {
     width: 100%;
-    min-width: 300px;
     height: 60px;
   }
 `
@@ -50,4 +49,8 @@ export const InputField = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 60%;
+
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
 `
